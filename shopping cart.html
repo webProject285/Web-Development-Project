@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" type="text/css" href="cart.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+    <style>
+        /* style for add and decrease btns */
+        .dec:hover {
+            color: rgb(255, 238, 0);
+            cursor: pointer;
+
+
+
+        }
+
+        /* for all elements */
+        * {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+            
+
+        }
+
+        /* css for container */
+        .container {
+
+            max-width: 1200px;
+            
+
+            height: 300px;
+            margin: 0 auto;
+
+        }
+
+        /* css for heading (your shopping cart) */
+        .container>h1 {
+
+            padding: 10px 0;
+
+        }
+
+        /* display flex to split screen(to design flexible responsive layout structure without using float or positioning) */
+        .cart {
+
+            display: flex;
+
+        }
+
+        /* size of products in container */
+        .products {
+
+            flex: 0.75;
+
+        }
+
+        /* css for all contents in products */
+        .product {
+
+            display: flex;
+
+            width: 100%;
+
+            height: 170px;
+
+            overflow: hidden;
+
+            border: 1px solid silver;
+
+
+
+            /* space between each item */
+            margin-bottom: 15px;
+
+
+        }
+
+        /* hover when point at box */
+        .product:hover {
+
+            border: none;
+
+            box-shadow: 2px 2px 4px rgb(0, 0, 0);
+
+            transform: scale(1.01);
+
+        }
+
+        /* for the images */
+        .product>img {
+
+            display: flex;
+            width: 170px;
+
+            height: 170px;
+
+            object-fit: cover;
+
+        }
+
+        /* hovr when point at images */
+        .product>img:hover {
+
+            transform: scale(1.04);
+
+        }
+
+        /* for content in each item */
+        .product-info {
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+
+            width: 1000%;
+
+            position: relative;
+
+        }
+
+        .product-name,
+        .product-price,
+        .product-offer {
+
+            margin-bottom: 10px;
+
+        }
+
+        .product-name {
+            text-decoration: underline;
+        }
+
+        /* remove button */
+        .product-remove {
+
+            position: absolute;
+
+            bottom: -10px;
+
+            right: 20px;
+
+            padding: 10px 25px;
+
+            background-color: rgb(255, 251, 6);
+
+            color: rgb(0, 0, 0);
+
+            cursor: pointer;
+
+
+        }
+
+
+
+        /* when point on remove button */
+        .product-remove:hover {
+
+            background-color: white;
+
+            color: rgb(0, 0, 0);
+
+            font-weight: 600;
+
+            border: 1px solid rgb(234, 255, 0);
+
+        }
+
+        /* for quantity */
+        .product-quantity>input {
+
+            width: 40px;
+            height: 20px;
+
+            padding: 5px;
+
+            text-align: center;
+
+        }
+
+
+        /* size for remove button */
+        .fa {
+
+            margin-right: 5px;
+
+        }
+
+
+        /* order summry all  */
+        .cart-total {
+
+            flex: 0.25;
+
+            margin-left: 20px;
+            background-color: rgb(255, 255, 255);
+
+
+
+            padding: 20px;
+
+            height: 450px;
+
+            border: 1px solid silver;
+
+            border-radius: 15px;
+
+        }
+
+        /* order summary */
+        .cart-total p {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 30px;
+
+            font-size: 20px;
+
+        }
+
+        /* proced buttom */
+        .cart-total a {
+
+            display: block;
+
+
+            text-align: center;
+
+            height: 40px;
+
+            line-height: 40px;
+
+            background-color: rgb(0, 0, 0);
+
+            color: rgb(255, 255, 255);
+
+            text-decoration: none;
+
+
+        }
+
+        /* hover on proced button */
+        .cart-total a:hover {
+
+            background-color: rgb(91, 91, 91);
+
+        }
+
+        @media screen and (max-width: 700px) {
+
+            .remove {
+
+                display: none;
+
+            }
+
+            .product {
+
+                height: 150px;
+
+            }
+
+            .product-imjj {
+
+                height: 20px;
+
+                width: 10px;
+
+            }
+
+            .product-name,
+            .product-price,
+            .product-offer,
+            .product-dec {
+
+                margin-bottom: 30px;
+
+            }
+
+        }
+
+
+        .product-price {
+            margin: 5px;
+
+        }
+
+        @media screen and (max-width: 900px) {
+
+            .cart {
+
+                flex-direction: column;
+
+
+            }
+
+            .cart-total {
+
+                margin-left: 0;
+
+                margin-bottom: 20px;
+                height: auto;
+
+
+            }
+
+        }
+
+        @media screen and (max-width: 1220px) {
+
+            .container {
+
+                max-width: 95%;
+
+            }
+
+        }
+
+        .summary {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        /* coupon text */
+        .coop {
+            height: 30px;
+            width: 150px;
+
+
+        }
+
+        /* coupon button */
+        .coop2btn {
+            height: 30px;
+            width: 70px;
+            background-color: black;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+
+
+
+
+
+
+        }
+
+        .coop2btn:hover {
+            background-color: rgb(91, 91, 91);
+        }
+
+        .product-price {
+            right: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <div class="container">
+
+
+        <h1>your Shopping Cart</h1>
+
+        <div class="cart">
+
+            <div class="products">
+
+
+                <!-- first item -->
+
+                <div class="product">
+
+                    <img class="imjj"
+                        src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2022/06/Lundberg-Family-Farms-Organic-Long-Grain-Rice.png?w=315&amp;h=840"
+                        jsaction="load:XAeZkd;" jsname="HiaYvf" class="n3VNCb KAlRDb" alt="12 Best Brands of Rice"
+                        data-noaft="1">
+
+                    <div class="product-info">
+
+                        <h2 class="product-name">Rice</h2>
+
+                        <h6 class="description">The Al Doha Egyptian Rice presents the finest quality, carefully picked
+                            grains that would
+                            not only beautify your rice-based cuisines but also makes them lip-smacking.</h6>
+                        <br>
+
+
+
+
+
+
+
+
+
+                        <p class="product-quantity">Number of items: <input class="product-quantity" value="1" name="">
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                            </svg>
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                            </svg>
+
+                        <h4 class="product-price">100 EGP</h4>
+
+                        <p class="product-remove">
+
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+
+                            <span class="remove">Remove</span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- second item -->
+                <div class="product">
+
+                    <img class="imjj" src="https://f.nooncdn.com/products/tr:n-t_120/v1664204113/N42485536A_1.avif"
+                        alt="L'Oréal Paris Hyaluron Expert Replumping Serum with Hyaluronic Acid Clear 30ml"
+                        class="sc-b51db3f-1 iCVkuj">
+                    <div class="product-info">
+
+                        <h2 class="product-name">perfume</h2>
+
+
+
+                        <h6 class="description">a mixture of fragrant essential oils or aroma compounds (fragrances), fixatives and solvents, usually in liquid form, used to give the human body, animals, food, objects, and living-spaces an agreeable scent..</h6>
+                        <br>
+
+
+
+
+                        <p class="product-quantity">Number of items:
+
+
+                            <input value="1" name="">
+
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                            </svg>
+
+
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                            </svg>
+
+
+
+
+                        <h4 class="product-price"> 2,000EGP</h4>
+
+
+
+
+                        <p class="product-remove">
+
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+
+                            <span class="remove">Remove</span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- thired item -->
+
+                <div class="product">
+
+                    <img class="imjj"
+                        src="https://media.direct.playstation.com/is/image/sierialto/playstation5-call-of-duty-modern-warfare-ii-bundle-box-front">
+
+                    <div class="product-info">
+
+                        <h2 class="product-name">Play Station 5</h2>
+
+
+                        <h6 class="description"> Playstation 5 White Disc Edition the PS5 is offered in two models: with and without a 4K Blu-ray drive. Supporting a 120Hz video refresh, the PS5 is considerably more powerful than the PS4 and PS4 Pro. .</h6>
+                        <br>
+
+
+
+
+
+
+
+                        <p class="product-quantity">number of items: <input value="1" name="">
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                            </svg>
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                            </svg>
+
+
+                        <h4 class="product-price"> 20,000 EGP</h4>
+
+
+
+
+
+
+
+
+                        <p class="product-remove">
+
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+
+                            <span class="remove">Remove</span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- fourth item -->
+
+                <div class="product">
+
+                    <img class="imjj" src="https://m.media-amazon.com/images/I/61cPy8j5sgL.jpg"
+                        alt="L'Oréal Paris Hyaluron Expert Replumping Serum with Hyaluronic Acid Clear 30ml"
+                        class="sc-b51db3f-1 iCVkuj">
+                    <div class="product-info">
+
+                        <h2 class="product-name">Tiger chips</h2>
+
+                        <h6 class="description">Tiger is high quality crinkled potato chips manufactured by Egypt Foods Group. Tiger Chips come in a wide range of flavours such as Seasoned Cheese, Paprika, Alexandrian Liver, Tomatos, Sausage, Salt & Pepper, Kebab, Chili & Lemon, Chicken, Cheese..</h6>
+                        <br>
+
+
+
+
+                        <p class="product-quantity">number of items: <input value="1" name="">
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-dash-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z" />
+                            </svg>
+
+
+
+                            <svg class="dec" role="button" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                            </svg>
+
+
+
+                        <h4 class="product-price"> 20,000EGP</h4>
+
+
+
+
+
+                        <p class="product-remove">
+
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+
+                            <span class="remove">Remove</span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+            <!-- total price section -->
+
+            <div class="cart-total">
+
+                <div class="summary">
+                    <tble class="summary">
+                        <th>
+                            <h2>Order Summary</h2>
+                        </th>
+                        </table>
+
+                </div>
+                <br>
+
+
+                <div>
+                    <input class="coop" type="text" placeholder="Enter gift code">
+                    <input class="coop2btn" type="submit" role="bu">
+                </div>
+
+
+                <p>
+
+                    <span>Number of Items</span>
+
+                    <span>5</span>
+
+                </p>
+
+
+
+
+                <p>
+
+                    <span>Taxs</span>
+
+                    <span>25.00 EGP</span>
+
+                </p>
+
+
+                <p>
+
+                    <span>Shipping</span>
+
+                    <span>300 EGP</span>
+
+                </p>
+
+
+                <p>
+
+                    <span>Total Price</span>
+
+                    <span>3,000 EGP</span>
+
+                </p>
+
+
+
+
+
+                <a href="#">Proceed to Checkout
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-cart-check" viewBox="0 0 16 16">
+                        <path
+                            d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                        <path
+                            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+</html>
