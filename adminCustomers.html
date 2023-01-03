@@ -1,1125 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/css/main.min.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      .h:active {
-      }
-      .h:hover {
-        transition: 0.4s;
-      }
-      .main {
-        padding-left: 200px;
-      }
-      .form-check-input:checked {
-        background-color: #f2e205;
-      }
-      .btn {
-        background-color: #f2e205;
-        color: #212529;
-      }
-      .btn:hover {
-        background-color: #d9bb29;
-      }
-      .nav-link:hover {
-        background-color: #6c757d;
-      }
-    </style>
-  </head>
-  <body class="bg-light">
-    <div class="h-100 d-none d-md-none d-lg-block" style="position: fixed">
-      <div
-        class="d-flex h-100 flex-column flex-shrink-0 p-3 bg-dark text-white"
-        style="width: 200px"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-        >
-          <!--logo-->
-          <img src="/assets/logo.png" alt="" style="width: 170px" />
-        </a>
-        <hr />
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li>
-            <a href="adminProducts.html" class="h nav-link text-white">
-              <i class="fa-solid fa-tag pe-3"></i>
-              <span>Products</span>
-            </a>
-          </li>
-          <li class="my-3">
-            <a href="adminOrders.html" class="h nav-link text-white">
-              <i class="fa-solid fa-truck pe-2"></i>
-              <span>Orders</span>
-            </a>
-          </li>
-          <li>
-            <a href="adminCustomers.html" class="h bg-secondary nav-link text-white">
-              <i class="fa-solid fa-person pe-3"></i>
-              <span>Customers</span>
-            </a>
-          </li>
-        </ul>
-        <hr />
-        <div class="dropdown">
-          <a
-            href="#"
-            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            id="dropdownUser1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="https://github.com/mdo.png"
-              alt=""
-              width="32"
-              height="32"
-              class="rounded-circle me-2"
-            />
-            <strong>Sharaf Shaban</strong>
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-dark text-small shadow"
-            aria-labelledby="dropdownUser1"
-          >
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="main">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-10" style="margin-top: 22px">
-            <h2 class="text-center">Customers</h2>
-            <div class="card mb-4">
-              <div class="card-body">
-                <table class="table align-middle mb-0 bg-white">
-                  <thead class="bg-light">
-                    <tr>
-                      <th>
-                        <input
-                          class="form-check-input mt-0"
-                          type="checkbox"
-                          value=""
-                          aria-label="Checkbox for following text input"
-                        />
-                      </th>
-                      <th>ID</th>
-                      <th>Photo</th>
-                      <th>Name</th>
-                      <th>Quantity</th>
-                      <th>Price</th>
-                      <th>Edit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="form-check-input" type="checkbox" />
-                      </td>
-                      <td>
-                        <a href="#">#1</a>
-                      </td>
-                      <td>
-                        <a href="#">
-                          <img
-                            src="/assets/445504_main.jpg"
-                            class="rounded border border-secondary"
-                            width="40"
-                            alt="..."
-                          />
-                        </a>
-                      </td>
-                      <td>Tiger</td>
-                      <td>
-                        <span class="text-success">10</span>
-                      </td>
-                      <td>$5</td>
-                      <td class="text-end">
-                        <div class="d-flex">
-                          <div class="dropdown">
-                            <a
-                              href="#"
-                              data-bs-toggle="dropdown"
-                              class="btn btn-floating"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              <i class="fa-solid fa-ellipsis"></i>
-                            </a>
-                            <div
-                              class="dropdown-menu dropdown-menu-end"
-                              style="margin: 0px"
-                            >
-                              <a href="#" class="dropdown-item">Edit</a>
-                              <a href="#" class="dropdown-item">Delete</a>
-                              <a href="#" class="dropdown-item"
-                                >Something else here</a
-                              >
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2" style="margin-top: 35px">
-            <h5>Actions</h5>
-            <div class="card mb-4">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  data-bs-target="#keywordsCollapseExample"
-                  role="button"
-                >
-                  <div>Search</div>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="collapse show mt-4" id="keywordsCollapseExample">
-                  <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Name"
-                    />
-                    <button class="btn border-0 custom" type="button">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-4">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  data-bs-target="#priceCollapseExample"
-                  role="button"
-                >
-                  <div>Price</div>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="mt-4 collapse show" id="priceCollapseExample">
-                  <div
-                    class="input-group align-items-center d-flex justify-content-between"
-                  >
-                    <input
-                      type="number"
-                      style="height: 37px"
-                      name="min"
-                      class="textInput col-sm-3 border border-secondary rounded"
-                      aria-label="max"
-                      value="0"
-                    />
-                    <span>TO</span>
-                    <input
-                      type="number"
-                      style="height: 37px"
-                      name="max"
-                      class="textInput col-sm-3 border border-secondary rounded"
-                      aria-label="max"
-                      value="200"
-                    />
-                    <button type="button" class="btn border rounded custom">
-                      Go
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-4">
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center"
-                  data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  data-bs-target="#categoriesCollapseExample"
-                  role="button"
-                >
-                  <div>Categories</div>
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="collapse show mt-4" id="categoriesCollapseExample">
-                  <div class="d-flex flex-column gap-3">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck1"
-                      />
-                      <label class="form-check-label" for="categoryCheck1">
-                        All
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck2"
-                      />
-                      <label class="form-check-label" for="categoryCheck2">
-                        Fresh Food
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck3"
-                      />
-                      <label class="form-check-label" for="categoryCheck3">
-                        Bakeries
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck4"
-                      />
-                      <label class="form-check-label" for="categoryCheck4">
-                        Food Cupboard
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Dairy, Cheese, Eggs
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Frozen food
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Beverages
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Snacks
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Personal Care
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Cleaning
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="categoryCheck5"
-                      />
-                      <label class="form-check-label" for="categoryCheck5">
-                        Baby Products
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      $("#multi22").mdbRange({
-        single: {
-          active: true,
-          multi: {
-            active: true,
-            rangeLength: 2,
-            counting: true,
-            countingTarget: ["#ex3", "#ex4"],
-          },
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    .h:hover {
+      transition: 0.4s;
+    }
+
+    .main {
+      padding-left: 200px;
+    }
+
+    .form-check-input:checked {
+      background-color: #F2E205;
+    }
+
+    .btn {
+      background-color: #F2E205;
+      color: #212529;
+    }
+
+    .btn:hover {
+      background-color: #D9BB29;
+    }
+
+    .nav-link:hover {
+      background-color: #6c757d;
+    }
+  </style>
+
+  <script>
+    var search = "";
+    function updateItems() {
+      const cats = [];
+      $.get("fetchCustomers.php",
+        {
+          q: "admin",
+          page: $("#page1").text(),
+          search: search
         },
+        function (data, status) {
+          $("#id").html(data);
+        });
+    }
+    $(document).ready(function () {
+      updateItems();
+      $("#searchBtn").click(function () {
+        search = $("#searchText").val();
+        updateItems();
       });
-    </script>
-  </body>
+      $("#id").change(function(){
+            var checkedCount = $("input:checkbox[name='productsCb']:checked").length;
+            if(checkedCount > 0)
+            {
+                $("#btnEdit").prop('disabled',false);
+                $("#btnDelete").prop('disabled',false);
+            }
+            else
+            {
+                $("#btnEdit").prop('disabled',true);
+                $("#btnDelete").prop('disabled',true);
+            }
+        });
+    });
+
+  </script>
+</head>
+
+<body class="bg-light">
+  <div class="h-100 d-none d-md-none d-lg-block" style="position: fixed;">
+    <div class="d-flex h-100 flex-column flex-shrink-0 p-3 bg-dark text-white " style="width: 200px;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <!--logo-->
+        <img src="/assets/logo.png" alt="" style="width: 170px;">
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a href="adminProducts.html" class="h nav-link text-white">
+            <i class="fa-solid fa-tag pe-3"></i>
+            <span>Products</span>
+          </a>
+        </li>
+        <li class="my-3">
+          <a href="adminOrders.html" class="h  nav-link text-white">
+            <i class="fa-solid fa-truck pe-2"></i>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li>
+          <a href="adminCustomers.html" class="h bg-secondary nav-link text-white">
+            <i class="fa-solid fa-person pe-3"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>Sharaf Shaban</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-10" style="margin-top: 22px;">
+          <h2 class="text-center">Customers</h2>
+          <div class="card mb-4">
+            <div class="card-body">
+              <table class="table align-middle mb-0 bg-white text-center">
+                <thead class="bg-light">
+                  <tr>
+                    <th>
+                      <input class="form-check-input mt-0" type="checkbox" value=""
+                        aria-label="Checkbox for following text input">
+                    </th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+                <tbody id="id">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 pe-4" style="margin-top: 35px;">
+          <h5>Actions</h5>
+          <div class="row">
+            <div class="col-12">
+              <button class="btn mb-2" id="btnAdd">Add</button>
+              <button class="btn mb-2" id="btnEdit" disabled>Edit</button>
+              <button class="btn mb-2" id="btnDelete" disabled>Delete</button>  
+            </div>
+          </div>
+          <!--Search bar-->
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
+                aria-expanded="true" data-bs-target="#keywordsCollapseExample" role="button">
+                <div>Search</div>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="collapse show mt-4" id="keywordsCollapseExample">
+                <div class="input-group">
+                  <input type="text" id="searchText" class="form-control" placeholder="Name">
+                  <button class="btn border-0" id="searchBtn" type="button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
