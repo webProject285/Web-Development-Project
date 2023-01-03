@@ -519,7 +519,7 @@ box-sizing: border-box;
                                     echo '<div class="card-body">';
                                     echo '<img src="data:P_Image/png;base64,' .base64_encode($row['P_Image']). '"class="center img-sm-fluid" width="150" height="150"/>';
                                     echo '<div style = "height:70px">';
-                                    echo '<h5 class="card-title pt-3 pb-1 crop-text-2" id = "product'.$i.'">'.$row['P_FName'].'</h5>';
+                                    echo '<h5 class="card-title pt-3 pb-1 crop-text-2" id = "product'.$i.'"><a href=http://localhost/web/Store/productpage.php?q=' .$row['P_ID']. '>'.$row['P_FName'].'</a></h5>';
                                     echo '</div>';
                                     if($row['P_Sale'] == 0){
                                       echo '<h6 class="card-title pb-3">Price: ' .$row['P_Price']. 'EGP </h6>';
