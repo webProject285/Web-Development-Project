@@ -1,6 +1,6 @@
 <?php
 //	session_start();
-	require 'config.php';  //in config.php code to connect to the database
+	require 'db.php';  //in config.php code to connect to the database
 
 	
 
@@ -25,7 +25,7 @@
 
 	  $_SESSION['showAlert'] = 'block';      //display a the message box in it Item removed from the cart!
 	  $_SESSION['message'] = 'Item removed from the cart!'; //the message
-	  include('cart.php');
+	  include('shoppingcart.php');
       // or  header('location:cart.php');
 	}
 

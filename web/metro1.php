@@ -609,7 +609,7 @@
             href="https://www.facebook.com/Hypermetro">
             <i class="fa-brands fa-facebook"></i>
           </a>
-          <a class="text-muted" style=" margin-left: 8px;margin-right: 8px;text-decoration:none" href="Contact_us">
+          <a class="text-muted" style=" margin-left: 8px;margin-right: 8px;text-decoration:none" href="Contact_us.html">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
           <a class="text-muted" style=" margin-left: 8px;margin-right: 8px;text-decoration:none" href="#">

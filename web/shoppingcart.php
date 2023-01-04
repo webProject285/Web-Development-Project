@@ -91,7 +91,6 @@
                 if(mysqli_connect_errno()){
                   echo 'Failed to connect';
                 }	
-                session_start();
                 $CID = $_SESSION['USER_ID'];
                 $stmt = 'SELECT O_ID FROM orders WHERE O_Done = 0 AND C_ID = ' .$CID. '';
                 $stmt_e = mysqli_query($conn, $stmt);
