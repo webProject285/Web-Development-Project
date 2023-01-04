@@ -134,11 +134,43 @@
                     $("#btnEdit").prop('disabled',true);
                     $("#btnDelete").prop('disabled',true);
                 }
+                if(checkedCount >1)
+                {
+                    $("#btnEdit").prop('disabled',true);
+                }
             });
             $("#btnAdd").click(function(){
                 window.location.href = "addProducts.html";
             });
-
+            $("#btnEdit").click(function(){
+                var id = $("input:checkbox[name='productsCb']:checked").next('label').text();
+                $.get("editProducts.php",
+                {
+                    q: "admin",
+                    pid:id
+                },
+                function(data, status){
+                    console.log(data);
+                    window.location.href = "editProducts.html";
+                });
+            });
+            $("#btnDelete").click(function(){
+                const its = [];
+                $("input:checkbox[name='productsCb']:checked").each(function(){
+                    its.push($(this).next('label').text());
+                });
+                console.log(its);
+                $.get("deleteProducts.php",
+                {
+                    q: "admin",
+                    arr: its
+                },
+                function(data, status){
+                    $("#btnEdit").prop('disabled',true);
+                    $("#btnDelete").prop('disabled',true);
+                    updateItems();
+                });
+            });
             $("#searchBtn").click(function(){
                 search = $("#searchText").val();
                 updateItems();
@@ -153,7 +185,7 @@
         <div class="d-flex h-100 flex-column flex-shrink-0 p-3 bg-dark text-white " style="width: 200px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <!--logo-->
-                <img src="/assets/logo.png" alt="" style="width: 170px;">
+                <img src="/Assets/logo.png" alt="" style="width: 170px;">
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -176,17 +208,6 @@
                     </a>
                 </li>
             </ul>
-            <hr>
-            <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                    <strong>Sharaf Shaban</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
-            </div>
         </div>
     </div>
     <div class="main">
@@ -203,7 +224,6 @@
                                             <input class="form-check-input mt-0" type="checkbox" value=""
                                                 aria-label="Checkbox for following text input">
                                         </th>
-                                        <th>ID</th>
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Quantity</th>
@@ -212,7 +232,6 @@
                                         <th>Price Before</th>
                                         <th>Price After</th>
                                         <th>Edited By</th>
-                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody id="id">

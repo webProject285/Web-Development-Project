@@ -8,7 +8,7 @@
     {
         if($search !== "")
         {
-            $query = 'SELECT * FROM orders WHERE (O_ID BETWEEN ' .$minPrice. ' AND ' .$maxPrice.') AND P_FNAME LIKE "%'.$search.'%"';
+            $query = 'SELECT * FROM orders WHERE (O_Price BETWEEN ' .$minPrice. ' AND ' .$maxPrice.') AND O_ID LIKE "%'.$search.'%"';
         }
         else{
             $query = 'SELECT * FROM orders WHERE (O_Price BETWEEN ' .$minPrice. ' AND ' .$maxPrice.')';
@@ -37,19 +37,6 @@
                     <td>' . $row['O_Done'] . '</td>
                     <td>$' . $row['O_Price'] . '</td>
                     <td>' . $row['A_ID'] . '</td>
-                    <td class="text-end">
-                    <div class="dropdown text-center">
-                    <a href="#" data-bs-toggle="dropdown" class="btn btn-floating"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
-                    <a href="test.html" class="dropdown-item">Edit</a>
-                    <a href="#" class="dropdown-item">Delete</a>
-                    <a href="#" class="dropdown-item">Something else here</a>
-                    </div>
-                    </div>
-                    </td>
                     </tr>';
             }
         }

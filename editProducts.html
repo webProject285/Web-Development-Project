@@ -42,22 +42,17 @@
     </style>
 
     <script>
-        function loadCats(){
-            $.get("getCats.php",
-                function(data, status){
-                    console.log(data);
-                    $("#cats").html(data);
-                });
-        }
-        function loadAds(){
-            $.get("getAds.php",
-                function(data, status){
-                    $("#admins").html(data);
-                });
-        }
         $(document).ready(function () {
-            loadCats();
-            loadAds();
+            $.get("editProducts.php",
+                function(data, status){
+                    $.get("getProduct.php",
+                    {
+                        q: data
+                    },
+                    function(data, status){
+                        $("#idCard").html(data);
+                    });
+                });
             $("#id").change(function () {
                 var image = document.getElementById("pimage");
                 if($("#pname").val() == "" || $("#pbrand").val() == "" || $("#pquantity").val() == "" || $("#pdis").val() == "" || $("#pprice").val() == ""  || 
@@ -99,6 +94,36 @@
                     $("#dataBtn").hide();
                 });
             });
+            $("#idCard").change(function(){
+                if($("#pname").val() == "" || $("#pbrand").val() == "" || $("#pquantity").val() == "" || $("#pdis").val() == "" || $("#pprice").val() == ""  || 
+                $("#ppriceafter").val() == "" || $("#cats option:selected").text() == "None" || $("#admins option:selected").text() == "None"){
+                    $("#editBtn").prop('disabled',true);
+                }
+                else{
+                    $("#editBtn").prop('disabled',false);
+                }
+            });
+            $("#editBtn").click(function(){
+                var ps= 0;
+                if((Number($("#pprice").val())-Number($("#ppriceafter").val()))>0)
+                    ps = 1;
+                $.get("edit.php",
+                {   
+                    q:1,
+                    pname: $("#pname").val(),
+                    pbrand: $("#pbrand").val(),
+                    pquantity: $("#pquantity").val(),
+                    pdis: $("#pdis").val(),
+                    psale: ps,
+                    pprice: $("#pprice").val(),
+                    ppriceafter: $("#ppriceafter").val(),
+                    pcats: $("#cats option:selected").text(),
+                    padmins: $("#admins option:selected").text()
+                },
+                function(data, status){
+                    window.location.href = "adminProducts.html";
+                });
+            });
         });
 
     </script>
@@ -109,7 +134,7 @@
         <div class="d-flex h-100 flex-column flex-shrink-0 p-3 bg-dark text-white " style="width: 200px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <!--logo-->
-                <img src="Assets/logo.png" alt="" style="width: 170px;">
+                <img src="/assets/logo.png" alt="" style="width: 170px;">
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -132,76 +157,29 @@
                     </a>
                 </li>
             </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>Sharaf Shaban</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="main">
         <div class="container-fluid ">
             <div class="row">
                 <div class="col-sm-12" style="margin-top: 22px;">
-                    <h2 class="text-center">Add Products</h2>
+                    <h2 class="text-center">Edit Products</h2>
                     <div class="card mb-4">
-                        <div class="card-body" id="id">
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label for="pname" class="form-label">Product Name</label>
-                                    <input type="text" class="form-control" id="pname" placeholder="Product Name">
-                                </div>
-                                <div class="col-3">
-                                    <label for="pbrand" class="form-label">Product Brand</label>
-                                    <input type="text" class="form-control" id="pbrand" placeholder="Product Brand">
-                                </div>
-                                <div class="col-3">
-                                    <label for="pquantity" class="form-label">Product Quantity</label>
-                                    <input type="number" class="form-control" id="pquantity" placeholder="Product Quantity">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-12">
-                                    <label for="pdis" class="form-label">Product Description</label>
-                                    <input type="text" class="form-control" id="pdis" placeholder="Product Description">
-                                </div>
-                            </div>
+                        <div class="card-body" id="idCard">
                             
-                            <div class="row mb-3">
-                                <div class="col-4">
-                                    <label for="pprice" class="form-label">Product Price</label>
-                                    <input type="number" class="form-control" id="pprice" placeholder="Product Name">
-                                </div>
-                                <div class="col-4">
-                                    <label for="ppriceafter" class="form-label">Product Price After</label>
-                                    <input type="number" class="form-control" id="ppriceafter" placeholder="Product Quantity">
-                                </div>
-                                <div class="col-4">
-                                    <label class="form-check-label" for="psale">Sale</label>
-                                    <input class="form-check-input" type="checkbox" disabled value="" id="psale">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row mb-3">
-                                <div class="col-4">
-                                    <select class="form-select" aria-label="Default select example" id="cats">
-
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <select class="form-select" aria-label="Default select example" id="admins">
-
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-4">
-                                    <button class="btn btn-primary" id="dataBtn" disabled type="submit">ADD Data</button>
-                                    <form method="POST" action="addImage.php" enctype="multipart/form-data">
-                                        <input class="form-control my-3" type="file" name="file" id="pimage">
-                                        <button class="btn btn-primary" id="imgBtn" disabled type="submit" name="submit">ADD Image</button>
-                                    </form>
-                                </div>
-                            </div>     
                         </div>
+                        <button class="btn" disabled id="editBtn">EDIT</button>
                     </div>
                 </div>
             </div>

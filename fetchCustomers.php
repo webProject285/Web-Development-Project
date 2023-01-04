@@ -25,19 +25,6 @@
                     <td>' . $row['C_Email'] . '</td>
                     <td>' . $row['C_Number'] . '</td>
                     <td>' . $row['C_Address'] . '</td>
-                    <td class="text-end">
-                    <div class="dropdown text-center">
-                    <a href="#" data-bs-toggle="dropdown" class="btn btn-floating"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
-                    <a href="test.html" class="dropdown-item">Edit</a>
-                    <a href="#" class="dropdown-item">Delete</a>
-                    <a href="#" class="dropdown-item">Something else here</a>
-                    </div>
-                    </div>
-                    </td>
                     </tr>';
             }
         }

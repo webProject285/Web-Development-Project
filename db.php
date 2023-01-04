@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect('localhost','root','','metro1');
+	$conn = mysqli_connect('localhost','root','123','metro1');
 
 	if(mysqli_connect_errno())
 	{

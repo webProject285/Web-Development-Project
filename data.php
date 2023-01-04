@@ -36,13 +36,12 @@
                         while($subRow = mysqli_fetch_assoc($subResult)){
                             $categoryName = $subRow['PC_Name'];
                         }
-                        // <td>
-                        // <a href="#" class="ano">' . $row['P_ID'] . '</a>
-                        // </td>
                         echo '<tr>
                         <td>
-                        <input class="form-check-input productsCb" type="checkbox" name="productsCb">
-                        <label class="form-check-label" for="productsCb">' . $row['P_ID'] .'</label>
+                        <input class="form-check-input" type="checkbox" name="itemCb">
+                        </td>
+                        <td>
+                        <a href="#">' . $row['P_ID'] . '</a>
                         </td>
                         <td>
                         <a href="#">
@@ -57,6 +56,19 @@
                         <td>$' . $row['P_Price'] . '</td>
                         <td>$' . $row['P_PriceAfter'] . '</td>
                         <td>' . $row['A_ID'] . '</td>
+                        <td class="text-end">
+                        <div class="dropdown text-center">
+                        <a href="#" data-bs-toggle="dropdown" class="btn btn-floating"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" style="margin: 0px;">
+                        <a href="test.html" class="dropdown-item">Edit</a>
+                        <a href="#" class="dropdown-item">Delete</a>
+                        <a href="#" class="dropdown-item">Something else here</a>
+                        </div>
+                        </div>
+                        </td>
                         </tr>';
                         $x++;
                     /*}
